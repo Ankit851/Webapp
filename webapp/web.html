@@ -1,0 +1,25 @@
+<style>
+    #main
+    {
+      background-image: url(http://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/150px-Tux.svg.png);
+    }
+</style>
+<script>
+function cmd()
+{
+    var objXHR = new XMLHttpRequest();
+    objXHR.open("GET", "http://192.168.1.10/cgi-bin/local.py?x="+document.getElementById('input').value,"true");
+    objXHR.send();
+
+    objXHR.onload = function ()
+    {
+        document.getElementById('out').innerHTML = objXHR.responseText;
+    }
+}
+
+</script>
+
+<body id="main">
+<div> root@ip-192-168-1-10:~# <input id="input"/><button onclick="cmd();">Run</button></div> 
+<pre><div id="out"> Output Come Soon . . . . </div></pre>
+</body>
